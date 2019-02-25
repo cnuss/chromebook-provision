@@ -15,4 +15,4 @@ ln -s /opt/chromebook-provision/etc/puppet /etc/puppet
 
 cd "$PWD"
 
-#puppet apply /etc/puppet/manifests/site.pp
+puppet apply /etc/puppet/manifests/site.pp
