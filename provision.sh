@@ -13,6 +13,7 @@ git clone https://github.com/cnuss/chromebook-provision.git /opt/chromebook-prov
 rm -fr /etc/puppet
 ln -s /opt/chromebook-provision/etc/puppet /etc/puppet
 
-cd "$PWD"
-
+cd /etc/puppet
 puppet apply /etc/puppet/manifests/site.pp
+
+cd "$PWD"
