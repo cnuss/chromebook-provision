@@ -1,3 +1,7 @@
 #!/bin/sh
 
-echo "hello world"
+set -e
+set -x
+
+sudo apt-get update
+sudo apt-get install puppet git
