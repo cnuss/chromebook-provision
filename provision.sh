@@ -4,4 +4,4 @@ set -e
 set -x
 
 sudo apt-get update
-sudo apt-get install puppet git
+sudo apt-get install -y puppet git
