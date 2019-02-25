@@ -4,6 +4,5 @@ class cron-puppet {
         command => "cd /etc/puppet ; /usr/bin/git pull",
         user    => root,
         minute  => '*/30',
-        require => File['post-hook'],
     }
 }
