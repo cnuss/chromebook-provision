@@ -12,4 +12,4 @@ curl -sf -L https://raw.githubusercontent.com/cnuss/chromebook-provision/master/
 ## What does this do?
 
 1. Installs and configures puppet
-1. Runs a `puppet apply` of the Puppet code in (puppet)[puppet]
+1. Runs a `puppet apply` of the `site.pp` in this repository
