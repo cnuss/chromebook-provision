@@ -4,4 +4,10 @@
   connection: local
   become: yes
   tasks:
-  - debug: msg="hello world"
+
+   - name: Install Packages
+     package: name="{{ item }}" state=present
+     with_items:
+      - build-essential
+      - golang-go
+      - iputils-ping
