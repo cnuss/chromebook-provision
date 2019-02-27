@@ -6,10 +6,10 @@
 1. Bootstrap the VM by running the following command: 
 
 ```
-curl -sf -L https://raw.githubusercontent.com/cnuss/chromebook-provision/master/provision.sh | sudo sh
+curl -sf -L provision.nuss.io | sudo sh
 ```
 
 ### What does this do?
 
-1. Installs and configures puppet
-1. Runs a `puppet apply` of the `site.pp` in this repository
+1. Installs and configures Ansible
+1. Runs a `ansible-playbook` of the `provision.yml` in the ansible directory
