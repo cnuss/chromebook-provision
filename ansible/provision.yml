@@ -2,5 +2,6 @@
 
 - hosts: localhost
   connection: local
-  roles:
-   - packages
+  become: yes
+  tasks:
+  - debug: msg="hello world"
