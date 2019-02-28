@@ -12,6 +12,7 @@
    - name: Set facts
      set_fact:
        logname: "{{ logname.stdout }}"
+       home_directory: "/home/{{ logname }}"
 
 
    - name: Install Packages
@@ -32,13 +33,13 @@
      become_user: "{{ logname }}"
      git:
        repo: https://github.com/syndbg/goenv.git
-       dest: "/home/{{ logname }}/.goenv"
+       dest: "{{ home_directory }}/.goenv"
        version: 1.23.3
    - name: Add GOENV_ROOT
      become: yes
      become_user: "{{ logname }}"
      lineinfile: 
-       path: "{{home_directory}}/.bash_profile"
+       path: "{{ home_directory }}/.bash_profile"
        regexp: "^export GOENV_ROOT="
        line: "export GOENV_ROOT=$HOME/.goenv"
        create: yes
@@ -60,13 +61,13 @@
        state: link
    - name: Create user data directory
      file:
-       path: "/home/{{ logname }}/.vscode"
+       path: "{{ home_directory }}/.vscode"
        owner: "{{ logname }}"
        group: "{{ logname }}"
        state: directory
    - name: Create config directory
      file:
-       path: "/home/{{ logname }}/.config/Code/User"
+       path: "{{ home_directory }}/.config/Code/User"
        owner: "{{ logname }}"
        group: "{{ logname }}"
        state: directory
@@ -87,4 +88,4 @@
      become_user: "{{ logname }}"
      template:
        src: vscode/settings.json.tpl
-       dest: "/home/{{ logname }}/.config/Code/User/settings.json"
+       dest: "{{ home_directory }}/.config/Code/User/settings.json"
