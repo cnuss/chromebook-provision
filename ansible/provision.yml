@@ -42,7 +42,7 @@
      file:
        src: "/home/{{ logname.stdout }}/.vscode"
        owner: "{{ logname.stdout }}"
-       group: "{{ logname.stdout }}
+       group: "{{ logname.stdout }}"
        state: directory
    - name: Install extensions
      command: "/usr/local/bin/code --install-extension {{ item }} --user-data-dir {{ logname.stdout }}"
