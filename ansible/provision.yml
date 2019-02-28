@@ -46,7 +46,7 @@
        group: "{{ logname.stdout }}"
        state: directory
    - name: Install extensions
-     sudo: yes
+     become: yes
      become_user: "{{ logname.stdout }}"
      command: "/usr/local/bin/code --install-extension {{ item }}"
      with_items:
