@@ -16,7 +16,6 @@
       - unzip
       - build-essential
       - golang-go
-      - goenv
 
 
    - name: Install VSCode
