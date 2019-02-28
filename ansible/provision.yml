@@ -41,13 +41,19 @@
        state: link
    - name: Create user data directory
      file:
-       path: "/home/{{ logname.stdout }}/.vscode"
-       owner: "{{ logname.stdout }}"
-       group: "{{ logname.stdout }}"
+       path: "/home/{{ logname }}/.vscode"
+       owner: "{{ logname }}"
+       group: "{{ logname }}"
+       state: directory
+   - name: Create config directory
+     file:
+       path: "/home/{{ logname }}/.config/Code/User"
+       owner: "{{ logname }}"
+       group: "{{ logname }}"
        state: directory
    - name: Install extensions
      become: yes
-     become_user: "{{ logname.stdout }}"
+     become_user: "{{ logname }}"
      command: "/usr/local/bin/code --install-extension {{ item }}"
      with_items:
        - marlon407.code-groovy
@@ -57,3 +63,9 @@
        - PeterJausovec.vscode-docker
        - redhat.java
        - secanis.jenkinsfile-support
+   - name: Install settings
+     become: yes
+     become_user: "{{ logname }}"
+     template:
+       src: vscode/settings.json.tpl
+       dest: "/home/{{ logname }}/.config/Code/User/settings.json"
