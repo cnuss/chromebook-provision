@@ -16,6 +16,7 @@
       - unzip
       - build-essential
       - golang-go
+      - libnss3
 
 
    - name: Install VSCode
