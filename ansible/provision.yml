@@ -40,14 +40,12 @@
      become_user: "{{ logname }}"
      lineinfile: 
        path: "{{ home_directory }}/.bashrc"
-       regexp: "^export GOENV_ROOT="
        line: "export GOENV_ROOT=$HOME/.goenv"
    - name: Add GOENV to Path
      become: yes
      become_user: "{{ logname }}"
      lineinfile: 
        path: "{{ home_directory }}/.bashrc"
-       regexp: "^export PATH=$GOENV_ROOT"
        line: "export PATH=$GOENV_ROOT/bin:$PATH"
    - name: Add Goenv Init
      become: yes
