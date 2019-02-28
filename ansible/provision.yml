@@ -39,7 +39,7 @@
      become_user: "{{ logname }}"
      lineinfile: 
        path: "{{home_directory}}/.bash_profile"
-       regexp: "^export GOENV_ROOT\="
+       regexp: "^export GOENV_ROOT="
        line: "export GOENV_ROOT=$HOME/.goenv"
        create: yes
 
