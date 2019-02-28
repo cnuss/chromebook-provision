@@ -39,18 +39,23 @@
      become: yes
      become_user: "{{ logname }}"
      lineinfile: 
-       path: "{{ home_directory }}/.bash_profile"
+       path: "{{ home_directory }}/.bashrc"
        regexp: "^export GOENV_ROOT="
        line: "export GOENV_ROOT=$HOME/.goenv"
-       create: yes
    - name: Add GOENV to Path
      become: yes
      become_user: "{{ logname }}"
      lineinfile: 
-       path: "{{ home_directory }}/.bash_profile"
+       path: "{{ home_directory }}/.bashrc"
        regexp: "^export PATH=$GOENV_ROOT"
        line: "export PATH=$GOENV_ROOT/bin:$PATH"
-       create: yes
+   - name: Add Goenv Init
+     become: yes
+     become_user: "{{ logname }}"
+     lineinfile: 
+       path: "{{ home_directory }}/.bashrc"
+       regexp: "^eval \"$(goenv init"
+       line: "eval \"$(goenv init -)\""
 
 
    - name: Install VSCode
