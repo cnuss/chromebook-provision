@@ -28,11 +28,28 @@
       
       
    - name: Checkout Goenv
+     become: yes
+     become_user: "{{ logname }}"
      git:
        repo: https://github.com/syndbg/goenv.git
-       dest: /opt/goenv
+       dest: "/home/{{ logname }}/.goenv"
        version: 1.23.3
-       
+   - name: Add GOENV_ROOT
+     become: yes
+     become_user: "{{ logname }}"
+     lineinfile:
+       path: "/home/{{ logname }}/.bash_profile
+       regexp: '^export GOENV_ROOT='
+       line: 'export GOENV_ROOT="$HOME/.goenv"'
+       create: yes
+   - name: Add Goenv to PATH
+     become: yes
+     become_user: "{{ logname }}"
+     lineinfile:
+       path: "/home/{{ logname }}/.profile
+       regexp: '^export PATH="\$GOENV_ROOT'
+       line: 'export PATH="$GOENV_ROOT/bin:$PATH"'
+       create: yes
 
 
    - name: Install VSCode
