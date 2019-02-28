@@ -33,3 +33,13 @@
        src: /opt/VSCode-linux-x64/bin/code
        dest: /usr/local/bin/code
        state: link
+   - name: Install extensions
+     command: "/usr/local/bin/code --install-extension {{ item }}"
+     with_items:
+       - marlon407.code-groovy
+       - ms-mssql.mssql
+       - ms-python.python
+       - ms-vscode.Go
+       - PeterJausovec.vscode-docker
+       - redhat.java
+       - secanis.jenkinsfile-support
