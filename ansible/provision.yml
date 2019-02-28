@@ -29,6 +29,6 @@
        dest: /opt
    - name: Symlink VSCode
      file:
-       src: /opt/vscode/bin/code
+       src: /opt/VSCode-linux-x64/bin/code
        dest: /usr/local/bin/code
        state: link
