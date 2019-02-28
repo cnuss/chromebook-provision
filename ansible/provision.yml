@@ -48,7 +48,7 @@
      lineinfile:
        path: "/home/{{ logname }}/.profile
        regexp: '^export PATH="\\$GOENV_ROOT'
-       line: 'export PATH="\\$GOENV_ROOT/bin:$PATH"'
+       line: 'export PATH="\\$GOENV_ROOT/bin:\\$PATH"'
        create: yes
 
 
