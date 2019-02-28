@@ -25,6 +25,14 @@
       - build-essential
       - golang-go
       - libnss3
+      
+      
+   - name: Checkout Goenv
+     git:
+       repo: https://github.com/syndbg/goenv.git
+       dest: /opt/goenv
+       version: 1.23.3
+       
 
 
    - name: Install VSCode
