@@ -9,7 +9,9 @@
    - name: Get logname
      command: logname
      register: logname
-   - debug: var=logname
+   - name: Set facts
+     set_fact:
+       logname: "{{ logname.stdout }}"
 
 
    - name: Install Packages
