@@ -40,7 +40,7 @@
        state: link
    - name: Create user data directory
      file:
-       src: "/home/{{ logname.stdout }}/.vscode"
+       path: "/home/{{ logname.stdout }}/.vscode"
        owner: "{{ logname.stdout }}"
        group: "{{ logname.stdout }}"
        state: directory
