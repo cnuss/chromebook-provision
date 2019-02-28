@@ -27,4 +27,4 @@ sudo git pull
 # Begin provisioning
 sudo ansible-playbook /opt/chromebook-provision/ansible/provision.yml
 
-exec $SHELL
+source .bashrc
