@@ -9,6 +9,7 @@
    - name: Get logname
      command: logname
      register: logname
+   - debug: var=logname
 
 
    - name: Install Packages
@@ -45,7 +46,9 @@
        group: "{{ logname.stdout }}"
        state: directory
    - name: Install extensions
-     command: "/usr/local/bin/code --install-extension {{ item }} --user-data-dir {{ logname.stdout }}"
+     sudo: yes
+     become_user: "{{ logname.stdout }}"
+     command: "/usr/local/bin/code --install-extension {{ item }}"
      with_items:
        - marlon407.code-groovy
        - ms-mssql.mssql
