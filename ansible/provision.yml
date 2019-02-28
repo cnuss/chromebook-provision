@@ -4,6 +4,11 @@
   connection: local
   become: yes
   tasks:
+  
+  
+   - name: Get logname
+     command: logname
+     register: logname
 
 
    - name: Install Packages
@@ -33,8 +38,14 @@
        src: /opt/VSCode-linux-x64/bin/code
        dest: /usr/local/bin/code
        state: link
+   - name: Create user data directory
+     file:
+       src: "/home/{{ logname.stdout }}/.vscode"
+       owner: "{{ logname.stdout }}"
+       group: "{{ logname.stdout }}
+       state: directory
    - name: Install extensions
-     command: "/usr/local/bin/code --install-extension {{ item }}"
+     command: "/usr/local/bin/code --install-extension {{ item }} --user-data-dir {{ logname.stdout }}"
      with_items:
        - marlon407.code-groovy
        - ms-mssql.mssql
