@@ -12,7 +12,7 @@
    - name: Set facts
      set_fact:
        logname: "{{ logname.stdout }}"
-       home_directory: "/home/{{ logname }}"
+       home_directory: "/home/{{ logname.stdout }}"
 
 
    - name: Install Packages
