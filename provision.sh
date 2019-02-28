@@ -18,7 +18,7 @@ if [ -z "$BASE_REQS" ]; then
   sudo git clone https://github.com/cnuss/chromebook-provision.git /opt/chromebook-provision
 fi
 
-touch "$BASE_REQS"
+sudo touch "$BASE_REQS"
 
 # Get this repo
 cd /opt/chromebook-provision
