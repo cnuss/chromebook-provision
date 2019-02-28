@@ -54,7 +54,7 @@
      become_user: "{{ logname }}"
      lineinfile: 
        path: "{{ home_directory }}/.bashrc"
-       regexp: "^eval \"$(goenv init"
+       regexp: "^eval \"$\(goenv init"
        line: "eval \"$(goenv init -)\""
 
 
